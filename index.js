@@ -616,7 +616,7 @@ function wrapper(my) {
                   var tar = require('tar');
 
                   const packer = tar.create({
-                    gzip: my.tar.indexOf('.tar.gz') !== -1,
+                    gzip: my.stream || my.tar.indexOf('.tar.gz') !== -1,
                   },
                     [root + db.databaseName])
                     .on('error', callback)
